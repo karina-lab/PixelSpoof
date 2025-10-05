@@ -10,8 +10,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://jcenter.bintray.com'}
+        maven { url 'https://api.xposed.info/'}
     }
 }
-rootProject.name = "CaimanSpoof"
+rootProject.name = "MustangSpoof"
 include ':app'
