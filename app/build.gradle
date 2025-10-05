@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    namespace 'com.risenid.caimanspoof'
-    compileSdk 34
+    namespace 'com.risenid.mustangspoof'
+    compileSdk 36
 
     defaultConfig {
-        applicationId "com.risenid.caimanspoof"
+        applicationId "com.risenid.mustangspoof"
         minSdk 29
-        targetSdk 34
+        targetSdk 36
         versionCode 1
         versionName "1.0"
     }

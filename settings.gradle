@@ -13,5 +13,5 @@ dependencyResolutionManagement {
         maven { url 'https://jcenter.bintray.com'}
     }
 }
-rootProject.name = "CaimanSpoof"
+rootProject.name = "MustangSpoof"
 include ':app'
