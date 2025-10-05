@@ -13,7 +13,7 @@ To use this module you must have one of the following (latest versions):
 You must also have [LSPosed](https://github.com/mywalkb/LSPosed_mod) installed
 
 ### Installation
-- Download the latest APK of PixelSpoof from the [releases section](https://github.com/RisenID/PixelSpoof/releases) and install it like any normal APK.
+- Download the latest APK of PixelSpoof from the [releases section](https://github.com/karina-lab/PixelSpoof/releases) and install it like any normal APK.
 - Now open the LSPosed Manager and go to "Modules".
 - PixelSpoof should now appear in that list.
 - Click on PixelSpoof and enable the module by flipping the switch at the top that says "Enable module".
