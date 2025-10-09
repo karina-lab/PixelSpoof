@@ -43,7 +43,7 @@ public class MainHook implements IXposedHookLoadPackage {
         XposedHelpers.setStaticObjectField(Build.class, "DEVICE", "mustang");
 
         // ro.product.name
-        XposedHelpers.setStaticObjectField(Build.class, "PRODUCT", "mustang");
+        XposedHelpers.setStaticObjectField(Build.class, "PRODUCT", "mustang_beta");
 
         // ro.product.manufacturer
         XposedHelpers.setStaticObjectField(Build.class, "MANUFACTURER", "Google");
@@ -55,13 +55,13 @@ public class MainHook implements IXposedHookLoadPackage {
         XposedHelpers.setStaticObjectField(Build.class, "SOC_MODEL", "Tensor G5");
 
         // ro.build.id
-        XposedHelpers.setStaticObjectField(Build.class, "ID", "BD3A.250721.001.E1");
+        XposedHelpers.setStaticObjectField(Build.class, "ID", "BP41.250822.010");
 		
 		// ro.build.date.utc
-        XposedHelpers.setStaticObjectField(Build.class, "TIME", "1756878615");
+        XposedHelpers.setStaticObjectField(Build.class, "TIME", "1757564903");
 
         // ro.build.fingerprint
         XposedHelpers.setStaticObjectField(Build.class, "FINGERPRINT",
-                "google/mustang/mustang:16/BD3A.250721.001.E1/14034804:user/release-keys");
+                "google/mustang_beta/mustang:16/BP41.250822.010/14082742:user/release-keys");
     }
 }
