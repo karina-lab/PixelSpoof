@@ -55,13 +55,13 @@ public class MainHook implements IXposedHookLoadPackage {
         XposedHelpers.setStaticObjectField(Build.class, "SOC_MODEL", "Tensor G5");
 
         // ro.build.id
-        XposedHelpers.setStaticObjectField(Build.class, "ID", "BP41.250822.010");
+        XposedHelpers.setStaticObjectField(Build.class, "ID", "BP41.250916.009.A1");
 		
 		// ro.build.date.utc
-        XposedHelpers.setStaticObjectField(Build.class, "TIME", "1757564903");
+        XposedHelpers.setStaticObjectField(Build.class, "TIME", "1760091378");
 
         // ro.build.fingerprint
         XposedHelpers.setStaticObjectField(Build.class, "FINGERPRINT",
-                "google/mustang_beta/mustang:16/BP41.250822.010/14082742:user/release-keys");
+                "google/mustang_beta/mustang:16/BP41.250916.009.A1/14246511:user/release-keys");
     }
 }
