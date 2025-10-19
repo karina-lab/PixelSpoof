@@ -69,8 +69,11 @@ public class MainHook implements IXposedHookLoadPackage {
 		// ro.build.date.utc
         XposedHelpers.setStaticObjectField(Build.class, "TIME", "1758594137");
 
+		// ro.build.tags
+        XposedHelpers.setStaticObjectField(Build.class, "TAGS", "release-keys");	
+
 		// ro.build.type
-        XposedHelpers.setStaticObjectField(Build.class, "TYPE", "user");		
+        XposedHelpers.setStaticObjectField(Build.class, "TYPE", "user");			
 
         // ro.build.fingerprint
         XposedHelpers.setStaticObjectField(Build.class, "FINGERPRINT", "google/mustang/mustang:16/BD3A.251005.003.W3/14147046:user/release-keys");
