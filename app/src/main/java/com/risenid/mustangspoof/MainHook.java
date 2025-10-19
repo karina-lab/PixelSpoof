@@ -33,6 +33,12 @@ public class MainHook implements IXposedHookLoadPackage {
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {        
         XposedBridge.log("mustangSpoof: Hooking into: " + lpparam.packageName);
 
+		// ro.build.expect.bootloader
+        XposedHelpers.setStaticObjectField(Build.class, "BOOTLOADER", "deepspace-16.4-14238827");
+		
+        // ro.product.board
+        XposedHelpers.setStaticObjectField(Build.class, "HARDWARE", "mustang");
+
         // ro.product.board
         XposedHelpers.setStaticObjectField(Build.class, "BOARD", "mustang");
 
@@ -51,6 +57,9 @@ public class MainHook implements IXposedHookLoadPackage {
         // ro.product.model
         XposedHelpers.setStaticObjectField(Build.class, "MODEL", "Pixel 10 Pro XL");
 
+        // ro.soc.manufacturer
+        XposedHelpers.setStaticObjectField(Build.class, "SOC_MANUFACTURER", "Google");
+
         // ro.soc.model
         XposedHelpers.setStaticObjectField(Build.class, "SOC_MODEL", "Tensor G5");
 
@@ -60,8 +69,10 @@ public class MainHook implements IXposedHookLoadPackage {
 		// ro.build.date.utc
         XposedHelpers.setStaticObjectField(Build.class, "TIME", "1760091378");
 
+		// ro.build.type
+        XposedHelpers.setStaticObjectField(Build.class, "TYPE", "user");
+
         // ro.build.fingerprint
-        XposedHelpers.setStaticObjectField(Build.class, "FINGERPRINT",
-                "google/mustang_beta/mustang:16/BP41.250916.009.A1/14246511:user/release-keys");
+        XposedHelpers.setStaticObjectField(Build.class, "FINGERPRINT", "google/mustang_beta/mustang:16/BP41.250916.009.A1/14246511:user/release-keys");
     }
 }
