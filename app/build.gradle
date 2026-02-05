@@ -10,8 +10,8 @@ android {
         applicationId "com.risenid.mustangspoof"
         minSdk 29
         targetSdk 36
-        versionCode 202601
-        versionName "2026.01"
+        versionCode 202602
+        versionName "2026.02"
     }
 
     buildTypes {

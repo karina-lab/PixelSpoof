@@ -64,10 +64,10 @@ public class MainHook implements IXposedHookLoadPackage {
         XposedHelpers.setStaticObjectField(Build.class, "SOC_MODEL", "Tensor G5");
 
         // ro.build.id
-        XposedHelpers.setStaticObjectField(Build.class, "ID", "BP4A.260105.004.E1");
+        XposedHelpers.setStaticObjectField(Build.class, "ID", "BP4A.260205.001");
 		
 		// ro.build.date.utc
-        XposedHelpers.setStaticObjectField(Build.class, "TIME", "1765611800");
+        XposedHelpers.setStaticObjectField(Build.class, "TIME", "1766287705");
 
 		// ro.build.tags
         XposedHelpers.setStaticObjectField(Build.class, "TAGS", "release-keys");	
@@ -76,6 +76,6 @@ public class MainHook implements IXposedHookLoadPackage {
         XposedHelpers.setStaticObjectField(Build.class, "TYPE", "user");			
 
         // ro.build.fingerprint
-        XposedHelpers.setStaticObjectField(Build.class, "FINGERPRINT", "google/mustang/mustang:16/BP4A.260105.004.E1/14587043:user/release-keys");
+        XposedHelpers.setStaticObjectField(Build.class, "FINGERPRINT", "google/mustang/mustang:16/BP4A.260205.001/14624666:user/release-keys");
     }
 }
