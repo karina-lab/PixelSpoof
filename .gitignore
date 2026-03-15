@@ -16,3 +16,8 @@ local.properties
 *.jks
 *.keystore
 .idea/
+/.idea
+gradle/gradle-daemon-jvm.properties
+.idea/compiler.xml
+.idea/gradle.xml
+.idea/misc.xml
