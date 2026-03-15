@@ -20,7 +20,14 @@
 
 package com.risenid.mustangspoof;
 
+import android.content.pm.FeatureInfo;
 import android.os.Build;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
@@ -64,6 +71,40 @@ public class MainHook implements IXposedHookLoadPackage {
     
     private static final String CLIENT_ID = "android-google";
 
+    private static final Set<String> PIXEL_FEATURES = new HashSet<>(Arrays.asList(
+        "com.google.android.feature.PIXEL_EXPERIENCE",
+        "com.google.android.feature.TURBO_PRELOAD",
+        "com.google.android.feature.WELLBEING",
+        "com.google.android.feature.D2D_CABLE_MIGRATION_FEATURE",
+        "com.google.android.feature.PIXEL_2017_EXPERIENCE",
+        "com.google.android.feature.PIXEL_2018_EXPERIENCE",
+        "com.google.android.feature.PIXEL_2019_EXPERIENCE",
+        "com.google.android.feature.PIXEL_2019_MIDYEAR_EXPERIENCE",
+        "com.google.android.feature.PIXEL_2020_EXPERIENCE",
+        "com.google.android.feature.PIXEL_2020_MIDYEAR_EXPERIENCE",
+        "com.google.android.feature.PIXEL_2021_EXPERIENCE",
+        "com.google.android.feature.PIXEL_2021_MIDYEAR_EXPERIENCE",
+        "com.google.android.feature.PIXEL_2022_EXPERIENCE",
+        "com.google.android.feature.PIXEL_2022_MIDYEAR_EXPERIENCE",
+        "com.google.android.feature.PIXEL_2023_EXPERIENCE",
+        "com.google.android.feature.PIXEL_2023_MIDYEAR_EXPERIENCE",
+        "com.google.android.feature.PIXEL_2024_EXPERIENCE",
+        "com.google.android.feature.PIXEL_2024_MIDYEAR_EXPERIENCE",
+        "com.google.android.feature.PIXEL_2025_EXPERIENCE",
+        "com.google.android.feature.PIXEL_2025_MIDYEAR_EXPERIENCE",
+        "com.google.android.feature.GOOGLE_BUILD",
+        "com.google.android.feature.GOOGLE_EXPERIENCE",
+        "com.google.android.feature.GOOGLE_CAMERA_EXPERIENCE",
+        "com.google.android.feature.QUICK_TAP",
+        "com.google.android.feature.NOW_PLAYING_APP_26Q1",
+        "com.google.android.feature.NEXT_GENERATION_ASSISTANT",
+        "com.google.android.feature.GEMINI_EXPERIENCE",
+        "com.google.android.feature.AMBIENT_DATA",
+        "com.google.android.feature.CONTEXTUAL_SEARCH",
+        "com.google.android.feature.CONTEXTUAL_SEARCH_LIVE_TRANSLATE",
+        "com.android.systemui.SUPPORTS_DRAG_ASSISTANT_TO_SPLIT"
+    ));
+
     @Override
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {        
         XposedBridge.log("mustangSpoof: Hooking into: " + lpparam.packageName);
@@ -101,6 +142,52 @@ public class MainHook implements IXposedHookLoadPackage {
             @Override
             protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
                 param.setResult(BASEBAND);
+            }
+        });
+
+        // --- Device Features Spoofing ---
+        Class<?> pmsClass = XposedHelpers.findClass("android.app.ApplicationPackageManager", lpparam.classLoader);
+
+        XposedHelpers.findAndHookMethod(pmsClass, "hasSystemFeature", String.class, new XC_MethodHook() {
+            @Override
+            protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+                if (PIXEL_FEATURES.contains((String) param.args[0])) {
+                    param.setResult(true);
+                }
+            }
+        });
+
+        XposedHelpers.findAndHookMethod(pmsClass, "hasSystemFeature", String.class, int.class, new XC_MethodHook() {
+            @Override
+            protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+                if (PIXEL_FEATURES.contains((String) param.args[0])) {
+                    param.setResult(true);
+                }
+            }
+        });
+
+        XposedHelpers.findAndHookMethod(pmsClass, "getSystemAvailableFeatures", new XC_MethodHook() {
+            @Override
+            protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                FeatureInfo[] originalFeatures = (FeatureInfo[]) param.getResult();
+                if (originalFeatures == null) return;
+
+                List<FeatureInfo> newFeatures = new ArrayList<>(Arrays.asList(originalFeatures));
+                for (String featureName : PIXEL_FEATURES) {
+                    boolean exists = false;
+                    for (FeatureInfo feat : originalFeatures) {
+                        if (featureName.equals(feat.name)) {
+                            exists = true;
+                            break;
+                        }
+                    }
+                    if (!exists) {
+                        FeatureInfo info = new FeatureInfo();
+                        info.name = featureName;
+                        newFeatures.add(info);
+                    }
+                }
+                param.setResult(newFeatures.toArray(new FeatureInfo[0]));
             }
         });
 
