@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="xposed_scope">
+        <item>com.android.vending</item>
+        <item>com.google.android.apps.subscriptions.red</item>
+        <item>com.google.android.dialer</item>
+        <item>com.google.android.keep</item>
+        <item>com.google.android.googlequicksearchbox</item>
+        <item>com.google.android.apps.tips</item>
+        <item>com.google.android.apps.pixel.creativeassistant</item>
+        <item>com.google.android.apps.pixel.agent</item>
+        <item>com.google.android.apps.pixel.psi</item>
+        <item>com.google.android.as</item>
+        <item>com.google.android.apps.bard</item>
+        <item>com.google.android.apps.nexuslauncher</item>
+        <item>com.google.android.inputmethod.latin</item>
+
+        <item>com.aurora.store</item>
+        <item>com.apkupdater.ci</item>
+
+        <item>ru.andr7e.deviceinfohw</item>
+        <item>com.finalwire.aida64</item>
+        <item>com.ytheekshana.deviceinfo</item>
+    </string-array>
+</resources>

@@ -1,0 +1,10 @@
+[versions]
+agp = "9.1.0"
+kotlin = "2.3.20"
+xposed = "82"
+
+[libraries]
+xposed-api = { group = "de.robv.android.xposed", name = "api", version.ref = "xposed" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
