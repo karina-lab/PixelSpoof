@@ -6,31 +6,31 @@ object Values {
     const val PRODUCT = "mustang"
     const val BRAND = "google"
     const val MANUFACTURER = "Google"
-    const val FINGERPRINT = "google/mustang/mustang:17/CP2A.260605.012/15430684:user/release-keys"
-    const val DESCRIPTION = "mustang-user 17 CP2A.260605.012 15430684 release-keys"
-    const val ID = "CP2A.260605.012"
+    const val FINGERPRINT = "google/mustang/mustang:17/CP2A.260705.006/15641320:user/release-keys"
+    const val DESCRIPTION = "mustang-user 17 CP2A.260705.006 15641320 release-keys"
+    const val ID = "CP2A.260705.006"
     const val BOOTLOADER = "deepspace-17.2-15372054"
 
     const val SOC_MANUFACTURER = "Google"
     const val SOC_MODEL = "Tensor G5"
     const val PLATFORM = "laguna"
 
-    const val TIME = 1778884728000L
-    const val TIME_SEC = "1778884728"
+    const val TIME = 1781499318000L
+    const val TIME_SEC = "1781499318"
     const val TAGS = "release-keys"
     const val TYPE = "user"
     const val USER = "android-build"
-    const val HOST = "bcb8c9bcce95"
+    const val HOST = "fc82c00645a6"
 
     const val RELEASE = "17"
     const val SDK_INT = 37
     const val SDK_FULL = "37.0"
-    const val SECURITY_PATCH = "2026-06-05"
-    const val INCREMENTAL = "15430684"
-    const val FIRST_API_LEVEL = "37"
+    const val SECURITY_PATCH = "2026-07-05"
+    const val INCREMENTAL = "15641320"
+    const val FIRST_API_LEVEL = "36"
 
-    const val BUILD_DATE = "Fri May 15 15:38:48 PDT 2026"
-    const val BUILD_UUID = "Pp8difaf-KKDmY-2rNwgGVP0L-Oy5ujwsPvXWqUJuoo"
+    const val BUILD_DATE = "Sun Jun 14 21:55:18 PDT 2026"
+    const val BUILD_UUID = "craMkF_bW6JoYWc9zx3LzgJTLD958hJ8VJ59TCI_F2M"
     const val BASEBAND = "g5400i-260317-260429-B-15308590"
 
     const val CLIENT_ID = "android-google"
