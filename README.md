@@ -2,7 +2,7 @@
 
 ## Description
 An LSPosed module that lets you spoof all device-specific properties of your device, selectively for individual apps, to a high end Pixel device. 
-Currently Pixel 10 Pro XL (mustang).
+Currently Pixel 11 Pro XL (kodiak).
 
 ## Installation
 1. Install the APK.
@@ -11,5 +11,5 @@ Currently Pixel 10 Pro XL (mustang).
 4. Restart the selected apps.
 
 ## Features
-* Build.prop values from latest Pixel 10 Pro XL official firmware.
-* Features xmls from Pixel 10 series.
+* Build.prop values from latest Pixel 11 Pro XL official firmware.
+* Features xmls from Pixel 11 series.
